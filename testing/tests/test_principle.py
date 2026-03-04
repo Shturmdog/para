@@ -4,7 +4,7 @@ from urllib.response import addbase
 #TODO make with 'pip install -e'
 sys.path.append("../src")
 
-from math_demo import (add, add_with_bug, add_something)
+from math_demo import (add, add_with_bug, add_something, culculate_tax)
 
 def test_addition():
     assert add(2, 2) == 4
@@ -51,10 +51,14 @@ def test_add_something_resonable():
     assert add_something("10", "abc") == "10abc"
     assert add_something("xyz", "abc") == "xyzabc"
     print("TESTS PASSED")
-    
 
-
-
+def test_tax_calculation():
+    #using only integers doeasn't allow test caces
+    assert culculate_tax(1000) == 150
+    assert culculate_tax(2000) == 300
+    assert culculate_tax(30) == 4.5
+    assert culculate_tax(1) == 0.15
+    print("TESTS tax_calculation PASSED")
 
 if __name__ == '__main__':
     test_addition()
@@ -63,3 +67,4 @@ if __name__ == '__main__':
     test_addition_duplicated_logic()
     test_addition_resonable()
     test_add_something_resonable()
+    culculate_tax()
