@@ -20,6 +20,16 @@ def test_bug_addition_enough():
     assert add_with_bug(5, 6) == 11
     print("Test BUG ADDITION PASSED")
 
+def test_addition_duplicated_logic():
+    #BAD TEST since it relies on absence of '+' in add(
+    assert add(6, 3) == 6 + 3
+    #GOOD TEST since input and output are independent add()
+    assert add(6, 3) == 9
+    print("Test DUPLICATION LOGIC PASSED")
+
 
 if __name__ == '__main__':
     test_addition()
+    test_bug_addition_notsufficient()
+    test_addition_enough()
+    test_addition_duplicated_logic()
