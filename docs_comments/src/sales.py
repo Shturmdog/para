@@ -1,19 +1,28 @@
 # TODO refactor this module using buisness logic names
 
-
-def _row(x):
+def _parse_record(line: str):
     # x is one line from file
-    p = x.strip().split(",")  # split by comma
-    if len(p) != 4:  # if line is bad
-        return None  # return nothing
+    sale = line.strip().split(",")  # split by comma
+    if len(p) != 4:  # according to specs each line must have 4 columns
+        return None
+    (product, category, price, amount) = sale
 
-    n = p[0]  # product name
-    c = p[1]  # product category
-    a = float(p[2])  # price of one item
-    q = int(p[3])  # amount of items
+    price = float(price)
+    amount = int(amount)  # according to specs amount is not fractional
 
-    return {"n": n, "c": c, "a": a, "q": q}  # make dict
+    return {"product": product, "category": category, "price": price, "amount": amount}
 
+def _parse_record(line: str):
+    # x is one line from file
+    sale = line.strip().split(",")  # split by comma
+    if len(p) != 4:  # according to specs each line must have 4 columns
+        return None
+    (product, category, price, amount) = sale
+
+    price = float(price)
+    amount = int(amount)  # according to specs amount is not fractional
+
+    return {"product": product, "category": category, "price": price, "amount": amount}
 
 def read_data(path):
     res = []  # final list
