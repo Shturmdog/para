@@ -7,22 +7,21 @@ def _parse_record(line: str):
         return None
     (product, category, price, amount) = sale
 
-    price = float(price)
-    amount = int(amount)  # according to specs amount is not fractional
-
-    return {"product": product, "category": category, "price": price, "amount": amount}
-
-def _parse_record(line: str):
-    # x is one line from file
-    sale = line.strip().split(",")  # split by comma
-    if len(p) != 4:  # according to specs each line must have 4 columns
+    try:
+        price = float(price)
+    except ValueError:
         return None
-    (product, category, price, amount) = sale
 
-    price = float(price)
-    amount = int(amount)  # according to specs amount is not fractional
+    try:
+        amount = int(amount)
+        if amount != int(amount):
+            return None
+    except ValueError:
+        return None
 
     return {"product": product, "category": category, "price": price, "amount": amount}
+
+
 
 def read_data(path):
     res = []  # final list
