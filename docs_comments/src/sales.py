@@ -7,7 +7,7 @@ def _parse_record(line: str):
         line: record on one sale that come from file
 
     Preturns:
-        Data of one sale in from of dict or None if validation fails 
+        Data of one sale in from of dict or None if validation fails
     """
     # x is one line from file
     sale = line.strip().split(",")  # split by comma
