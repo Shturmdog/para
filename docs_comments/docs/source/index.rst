@@ -16,3 +16,7 @@ documentation for details.
    :caption: Contents:
    QUICKSTART
    USAGE
+
+
+::include:: ../DOMAIN.md
+  :parser: myst_parser.sphinx_
